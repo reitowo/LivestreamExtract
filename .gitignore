@@ -1,0 +1,16 @@
+.vs/
+x64/
+LivestreamEx/x64/
+LivestreamOCR/x64/
+final/output_video/
+final/output_live/
+final/output_danmu/
+final/output_smm2/
+final/output_slice/
+final/tessdata_best/ 
+final/bili-cookie.txt
+final/bili-cookie-Schvvarzer.txt
+final/douyu-cookie.txt
+final/bili-uid.txt
+final/bili-accesstoken.txt
+vcpkg_installed/

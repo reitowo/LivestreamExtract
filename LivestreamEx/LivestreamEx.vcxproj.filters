@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Danmu">
+      <UniqueIdentifier>{41474a48-9522-4cee-b082-151f140d8bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Recorder">
+      <UniqueIdentifier>{cca95b03-2815-42f2-9c62-1bed5a1420af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Processor">
+      <UniqueIdentifier>{205b5d61-dd52-4906-b8d6-1d77c468cdbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Utils">
+      <UniqueIdentifier>{1ed9584a-1d22-4ea9-9f28-b5006971e321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Extractor">
+      <UniqueIdentifier>{598c0b2b-6dae-4a3c-b698-f279b89b79c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Processor">
+      <UniqueIdentifier>{4c3da78a-c117-4263-93f7-9079dbb0b92f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Danmu">
+      <UniqueIdentifier>{36ebceb2-c307-4bdd-b79f-bbb3125e1b73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Recorder">
+      <UniqueIdentifier>{b0b0f348-e1be-483d-8ae2-be47687dbd02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Extractor">
+      <UniqueIdentifier>{5ababa6b-3e08-44a3-95d4-d560855241ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Utils">
+      <UniqueIdentifier>{6da5a8fb-3b47-4ff9-8fa1-bf059c07f250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Processor\SubProcessors">
+      <UniqueIdentifier>{428da75d-06be-4292-bb13-9c8ae0c94d3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Processor\SubProcessors">
+      <UniqueIdentifier>{b89dc5de-2187-4e97-8e21-3dd95032b88c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LivestreamDanmu.cpp">
+      <Filter>源文件\Danmu</Filter>
+    </ClCompile>
+    <ClCompile Include="LivestreamDanmuDouyu.cpp">
+      <Filter>源文件\Danmu</Filter>
+    </ClCompile>
+    <ClCompile Include="LivestreamRecorderDouyu.cpp">
+      <Filter>源文件\Recorder</Filter>
+    </ClCompile>
+    <ClCompile Include="LivestreamRecorder.cpp">
+      <Filter>源文件\Recorder</Filter>
+    </ClCompile>
+    <ClCompile Include="LivestreamExtractor.cpp">
+      <Filter>源文件\Extractor</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="timercpp.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="LivestreamProcessor.cpp">
+      <Filter>源文件\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="SubProcessorSMM2.cpp">
+      <Filter>源文件\Processor\SubProcessors</Filter>
+    </ClCompile>
+    <ClCompile Include="SubProcessorDanmuDouyu.cpp">
+      <Filter>源文件\Processor\SubProcessors</Filter>
+    </ClCompile>
+    <ClCompile Include="OCR.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LivestreamRecorder.h">
+      <Filter>头文件\Recorder</Filter>
+    </ClInclude>
+    <ClInclude Include="LivestreamRecorderDouyu.h">
+      <Filter>头文件\Recorder</Filter>
+    </ClInclude>
+    <ClInclude Include="LivestreamCounter.h">
+      <Filter>头文件\Recorder</Filter>
+    </ClInclude>
+    <ClInclude Include="LivestreamDanmuDouyu.h">
+      <Filter>头文件\Danmu</Filter>
+    </ClInclude>
+    <ClInclude Include="LivestreamDanmu.h">
+      <Filter>头文件\Danmu</Filter>
+    </ClInclude>
+    <ClInclude Include="timercpp.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="LivestreamExtractor.h">
+      <Filter>头文件\Extractor</Filter>
+    </ClInclude>
+    <ClInclude Include="LivestreamProcessor.h">
+      <Filter>头文件\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="LivestreamSubProcessor.h">
+      <Filter>头文件\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="SubProcessorSMM2.h">
+      <Filter>头文件\Processor\SubProcessors</Filter>
+    </ClInclude>
+    <ClInclude Include="SubProcessorDanmuDouyu.h">
+      <Filter>头文件\Processor\SubProcessors</Filter>
+    </ClInclude>
+    <ClInclude Include="OCR.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

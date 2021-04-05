@@ -1,0 +1,21 @@
+{
+    "name": "livestream-extractor",
+    "version-string": "0.0.2",
+    "dependencies": [
+        "cli11",
+        "cpr",
+        "v8",
+        "boost",
+        "tesseract",
+        {
+          "name": "ffmpeg",
+          "default-features": true,
+          "features": [ "fdk-aac", "nvcodec", "x264" ]
+        },
+        "opencv4",
+        "ixwebsocket",
+        "nlohmann-json",
+        "bup",
+        "k1ee"
+      ]
+}
