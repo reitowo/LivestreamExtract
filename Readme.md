@@ -50,7 +50,7 @@
 
    - 只下eng
 
-     ![image-20210405214949106](C:\Users\k1ee\AppData\Roaming\Typora\typora-user-images\image-20210405214949106.png)
+     ![image-20210405214949106](https://i.loli.net/2021/04/05/BxgPNz7qZehc524.png)
 
    - 所有都下
 
@@ -58,11 +58,11 @@
 
 6. 修改程序输入输出目录，在common.h里，一般只用修改final的路径
 
-   ![image-20210405215106290](C:\Users\k1ee\AppData\Roaming\Typora\typora-user-images\image-20210405215106290.png)
+   ![image-20210405215106290](https://i.loli.net/2021/04/05/96dJfLQtKbh41Pr.png)
 
 7. 用Proxifier和Fiddler抓B站投稿工具的access_key，放在workingFolder的`bili-accesstoken.txt`，你的UID放在`bili-uid.txt`，登录斗鱼抓包拿Cookie放在`douyu-cookie.txt`
 
-   ![image-20210405215158987](C:\Users\k1ee\AppData\Roaming\Typora\typora-user-images\image-20210405215158987.png)
+   ![image-20210405215158987](https://i.loli.net/2021/04/05/9lDNsaXMy5vRz6r.png)
 
 ## 测试样例
 
