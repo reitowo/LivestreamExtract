@@ -24,7 +24,7 @@
 
    - `VCPKG_ROOT`: 你的vcpkg安装路径，如`C:/vcpkg`
    - `VCPKG_DEFAULT_TRIPLET`: `x64-windows`
-   - `VCPKG_FEATURE_FLAGS`: `manifests,registers,versions,binarycaching`
+   - `VCPKG_FEATURE_FLAGS`: `manifests,registries,versions,binarycaching`
 
 3. 安装依赖，使用vcpkg manifests功能
 
