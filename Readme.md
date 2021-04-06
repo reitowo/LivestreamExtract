@@ -28,7 +28,7 @@
 
 3. 安装[Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)，并安装`Debugging Tools for Windows`，如图
 
-   ![image-20210406203337812](C:\Users\cnsch\AppData\Roaming\Typora\typora-user-images\image-20210406203337812.png)
+   ![image-20210406203841321](https://i.loli.net/2021/04/06/IrScw4tBReknqfj.png)
 
 4. 安装依赖，使用vcpkg manifests功能
 
