@@ -370,7 +370,7 @@ void SubProcessorSMM2::smm2MatchCourse(cv::Mat& frame, uint64_t frameId)
 void SubProcessorSMM2::onSerialize(json& root)
 {
 	root["smm2_file"] = std::filesystem::absolute(smm2FilePath).string();
-	root["smm2_image"] = std::filesystem::absolute(smm2ImagePath).string();
+	root["smm2_image"] = std::filesystem::absolute(smm2ImagePath).string(); 
 }
 
 void SubProcessorSMM2::start(time_t timestamp)

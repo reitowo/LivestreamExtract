@@ -1,6 +1,6 @@
 {
     "name": "livestream-extractor",
-    "version-string": "0.0.2",
+    "version-string": "0.0.3",
     "dependencies": [
         "cli11",
         "cpr",
