@@ -26,7 +26,11 @@
    - `VCPKG_DEFAULT_TRIPLET`: `x64-windows`
    - `VCPKG_FEATURE_FLAGS`: `manifests,registries,versions,binarycaching`
 
-3. 安装依赖，使用vcpkg manifests功能
+3. 安装[Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)，并安装`Debugging Tools for Windows`，如图
+
+   ![image-20210406203337812](C:\Users\cnsch\AppData\Roaming\Typora\typora-user-images\image-20210406203337812.png)
+
+4. 安装依赖，使用vcpkg manifests功能
 
    建议你先升级一下vcpkg，`git pull`然后`.\bootstrap-vcpkg.bat`，防止版本过老
 
@@ -38,7 +42,7 @@
 
    有可能提示你的VS2019没有安装英语语言包，请打开Visual Studio Installer，修改，添加英语语言包。
 
-4. 尽管由于你直接使用了我的工程，我认为有必要把我所做修改告诉你，避免你以后踩坑
+5. 尽管由于你直接使用了我的工程，我认为有必要把我所做修改告诉你，避免你以后踩坑
 
    1. 对所有配置，平台x64，点左侧`vcpkg`，修改Triplet为x64-windows
    2. 左侧`C++ -> 预处理器`，添加`_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS`以及`V8_COMPRESS_POINTERS`，因为有一个依赖以`C++14`开发，但本工程使用了一些`C++17`的特性。后面的V8是因为对于VS传统C++控制台应用（非CMake应用），vcpkg不支持自动添加，会导致运行失败。
@@ -46,7 +50,7 @@
    4. 调整`调试->工作目录`为`$(SolutionDir)$(Platform)\$(Configuration)\`，指向exe生成文件夹
    5. 左侧`C/C++ -> 命令行`添加`/utf-8 `
 
-5. （可选）下载tesseract模型，并放在final文件夹内，开发时用的是best模型，[点这儿](https://github.com/tesseract-ocr/tessdata_best)下载，本文只用到了eng，已经放在里面了，你也可以下完整的去做其他事，挺大的（1.3G），这里的final可以在`common.h`修改
+6. （可选）下载tesseract模型，并放在final文件夹内，开发时用的是best模型，[点这儿](https://github.com/tesseract-ocr/tessdata_best)下载，本文只用到了eng，已经放在里面了，你也可以下完整的去做其他事，挺大的（1.3G），这里的final可以在`common.h`修改
 
    - 只下eng
 
@@ -56,11 +60,11 @@
 
      ![image-20210107213642876](https://typora-schwarzer.oss-cn-hangzhou.aliyuncs.com/image-20210107213642876.png)
 
-6. 修改程序输入输出目录，在common.h里，一般只用修改final的路径
+7. 修改程序输入输出目录，在common.h里，一般只用修改final的路径
 
    ![image-20210405215106290](https://i.loli.net/2021/04/05/96dJfLQtKbh41Pr.png)
 
-7. 用Proxifier和Fiddler抓B站投稿工具的access_key，放在workingFolder的`bili-accesstoken.txt`，你的UID放在`bili-uid.txt`，登录斗鱼抓包拿Cookie放在`douyu-cookie.txt`
+8. 用Proxifier和Fiddler抓B站投稿工具的access_key，放在workingFolder的`bili-accesstoken.txt`，你的UID放在`bili-uid.txt`，登录斗鱼抓包拿Cookie放在`douyu-cookie.txt`
 
    ![image-20210405215158987](https://i.loli.net/2021/04/05/9lDNsaXMy5vRz6r.png)
 
