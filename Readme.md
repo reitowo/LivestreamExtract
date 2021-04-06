@@ -46,7 +46,7 @@
    4. 调整`调试->工作目录`为`$(SolutionDir)$(Platform)\$(Configuration)\`，指向exe生成文件夹
    5. 左侧`C/C++ -> 命令行`添加`/utf-8 `
 
-5. 下载tesseract模型，并放在final文件夹内，开发时用的是best模型，[点这儿](https://github.com/tesseract-ocr/tessdata_best)下载，本文只用到了eng，因此可以只下eng的，你也可以clone仓库，挺大的（1.3G），这里的final可以在`common.h`修改
+5. （可选）下载tesseract模型，并放在final文件夹内，开发时用的是best模型，[点这儿](https://github.com/tesseract-ocr/tessdata_best)下载，本文只用到了eng，已经放在里面了，你也可以下完整的去做其他事，挺大的（1.3G），这里的final可以在`common.h`修改
 
    - 只下eng
 
