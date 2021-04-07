@@ -398,7 +398,8 @@ https://github.com/cnSchwarzer/LivestreamExtract)";
 	uploadTask->title = "【超级小桀】直播自动切片 "
 		+ std::to_string(now.tm_year + 1900) + "年"
 		+ std::to_string(now.tm_mon + 1) + "月"
-		+ std::to_string(now.tm_mday) + "日";
+		+ std::to_string(now.tm_mday) + "日"
+		+ std::to_string(now.tm_hour) + "点场";
 	uploadTask->cover = uploader->uploadCover(workingFolder + "/slice_cover.jpg");
 
 	working = true;

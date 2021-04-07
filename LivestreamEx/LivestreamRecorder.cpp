@@ -310,12 +310,19 @@ std::string LivestreamRecorder::generateSliceFilePath(int from, int to)
 	//生成一个切片的保存路径
 	time_t slice = getTimestampMillisecond();
 	std::filesystem::create_directories(outputFolder + "/output_slice/" + std::to_string(timestamp));
+
 	if (from == 0 && to == 0)
 	{
 		return outputFolder + "/output_slice/" + std::to_string(timestamp) + "/" + std::to_string(slice) + ".flv";
-	}
+	} 
+	
+	std::time_t t = std::time(nullptr); // get time now
+	std::tm now;
+	localtime_s(&now, &t);
+	std::string formattedTime = std::to_string(now.tm_hour) + ":" + std::to_string(now.tm_hour) + ":" + std::to_string(now.tm_hour);
+	
 	return outputFolder + "/output_slice/" + std::to_string(timestamp) + "/" +
-		std::to_string(from) + "-" + std::to_string(to) + " (" + std::to_string(slice) + ")" ".flv";
+		std::to_string(from) + "-" + std::to_string(to) + " (" + formattedTime + ")" ".flv";
 }
 
 void LivestreamRecorder::startOutputSlice()
