@@ -6,6 +6,8 @@
 #include <filesystem>
 #include <iostream>
 #include <thread>
+#include <libavformat/avformat.h>
+#include <k1ee/k1ee.h>
 
 #include "Utils.h"
 #include "LivestreamCounter.h"
@@ -319,7 +321,10 @@ std::string LivestreamRecorder::generateSliceFilePath(int from, int to)
 	std::time_t t = std::time(nullptr); // get time now
 	std::tm now;
 	localtime_s(&now, &t);
-	std::string formattedTime = std::to_string(now.tm_hour) + ":" + std::to_string(now.tm_hour) + ":" + std::to_string(now.tm_hour);
+	std::string formattedTime = 
+		std::to_string(now.tm_hour) + "点"+ 
+		std::to_string(now.tm_min) + "分"+ 
+		std::to_string(now.tm_sec) + "秒";
 	
 	return outputFolder + "/output_slice/" + std::to_string(timestamp) + "/" +
 		std::to_string(from) + "-" + std::to_string(to) + " (" + formattedTime + ")" ".flv";
@@ -363,8 +368,8 @@ std::string LivestreamRecorder::endOutputSlice(int from, int to)
 
 		if (from != 0 && to != 0)
 		{
-			auto newName = generateSliceFilePath(from, to);
-			std::filesystem::rename(oldName, newName);
+			auto newName = generateSliceFilePath(from, to); 
+			std::filesystem::rename(oldName, k1ee::basic_string_cast<char8_t>(newName));
 			cout << "重命名为：" << newName << endl;
 			ret = newName;
 		}

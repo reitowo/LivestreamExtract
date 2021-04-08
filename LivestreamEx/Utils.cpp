@@ -112,7 +112,7 @@ vector<string> str_split(string str, string separator)
 	}
 
 	return ret;
-}
+} 
 
 std::string jsonToString(nlohmann::json json)
 {

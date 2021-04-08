@@ -23,6 +23,6 @@ std::wstring str_towstr(std::string bytes, uint32_t encoding = CP_UTF8);
 std::string str_replace(string str, string from, string to); 
 bool str_contains(string str, string value); 
 vector<string> str_split(string str, string separator);
-
+ 
 std::string jsonToString(nlohmann::json json);
 void notifyMessage(std::string message);

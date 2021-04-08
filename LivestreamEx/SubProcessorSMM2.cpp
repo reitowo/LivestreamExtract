@@ -116,7 +116,7 @@ void SubProcessorSMM2::initialize(LivestreamExtractor* extractor, LivestreamReco
 			uploadQueueMutex.unlock();
 
 			if (task.has_value())
-			{
+			{  
 				auto video = uploader->uploadVideo(task.value());
 				uploadTask->videos.push_back(video);
 
@@ -202,7 +202,7 @@ void SubProcessorSMM2::smm2MatchEnd(cv::Mat& frame, uint64_t frameId)
 
 #define UPLOAD_EVERYTIME 0
 #if !UPLOAD_EVERYTIME
-		uploadVideoAsync(video_path);
+		uploadVideoAsync(std::filesystem::path(k1ee::basic_string_cast<char8_t>(video_path)));
 #else
 		
 		auto ratingFrom = currentSMM2Match->ratingFrom;
@@ -319,7 +319,7 @@ void SubProcessorSMM2::smm2MatchResultFrom(cv::Mat& frame, uint64_t frameId)
 
 	if (currentSMM2Match->ratingFromFrameId != 0)
 		return;
-	
+
 	currentSMM2Match->ratingFromFrameId = frameId;
 	auto path = smm2ImagePath + "/" + std::to_string(frameId) + ".png";
 	imwriteFlush(path, frame);
@@ -359,9 +359,9 @@ void SubProcessorSMM2::smm2MatchCourse(cv::Mat& frame, uint64_t frameId)
 	if (currentSMM2Match == nullptr)
 		return;
 
-	if(currentSMM2Match->matchCourseFrameId != 0)
+	if (currentSMM2Match->matchCourseFrameId != 0)
 		return;
-	
+
 	currentSMM2Match->matchCourseFrameId = frameId;
 	imwriteFlush(smm2ImagePath + "/" + std::to_string(frameId) + ".png", frame);
 	cout << "SMM2: 关卡" << endl;
@@ -370,7 +370,7 @@ void SubProcessorSMM2::smm2MatchCourse(cv::Mat& frame, uint64_t frameId)
 void SubProcessorSMM2::onSerialize(json& root)
 {
 	root["smm2_file"] = std::filesystem::absolute(smm2FilePath).string();
-	root["smm2_image"] = std::filesystem::absolute(smm2ImagePath).string(); 
+	root["smm2_image"] = std::filesystem::absolute(smm2ImagePath).string();
 }
 
 void SubProcessorSMM2::start(time_t timestamp)
@@ -380,8 +380,8 @@ void SubProcessorSMM2::start(time_t timestamp)
 	smm2ImagePath = outputFolder + "/output_smm2/" + std::to_string(timestamp);
 	std::filesystem::create_directories(outputFolder + "/output_smm2");
 	std::filesystem::create_directories(smm2ImagePath);
-	uploader = new bup::BUpload(std::atol(k1ee::read_all_texts( workingFolder + "/bili-uid.txt").c_str()),
-		k1ee::read_all_texts( workingFolder + "/bili-accesstoken.txt"));
+	uploader = new bup::BUpload(std::atol(k1ee::read_all_texts(workingFolder + "/bili-uid.txt").c_str()),
+	                            k1ee::read_all_texts(workingFolder + "/bili-accesstoken.txt"));
 	uploadTask = new bup::Upload();
 	uploadedAvId = 0;
 

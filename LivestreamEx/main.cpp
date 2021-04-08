@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 {
 	//程序用了UTF8编码捏，调试不方便的话请在字符串变量后面加",s8"，如str,s8就可以解析UTF8内存字符串了
 	SetConsoleCP(65001);
-	SetConsoleOutputCP(65001);
+	SetConsoleOutputCP(65001); 
 	
 	auto* danmu = new LivestreamDanmuDouyu;
 	auto* recorder = new LivestreamRecorderDouyu;
