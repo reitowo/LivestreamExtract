@@ -1,5 +1,3 @@
-// LivestreamEx.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-// 
 #include <iostream>
 #include <v8.h>
 #include <CLI/CLI.hpp>
@@ -23,9 +21,9 @@ using std::endl;
 
 int main(int argc, char** argv)
 {
-	//程序用了UTF8编码捏，调试不方便的话请在字符串变量后面加",s8"，如str,s8就可以解析UTF8内存字符串了
+	//程序用了UTF8编码，调试不方便的话在字符串变量后面加",s8"，如str,s8就可以解析UTF8内存字符串了
 	SetConsoleCP(65001);
-	SetConsoleOutputCP(65001); 
+	SetConsoleOutputCP(65001);
 	
 	auto* danmu = new LivestreamDanmuDouyu;
 	auto* recorder = new LivestreamRecorderDouyu;
@@ -51,7 +49,7 @@ int main(int argc, char** argv)
 		return 0;
 	});
 
-	//随便试了试CLI这个库，其实没必要用？
+	//随便试了试CLI这个库
 	CLI::App app{"Livestream Interest Extractor"};
 
 	int roomId = 74751;
