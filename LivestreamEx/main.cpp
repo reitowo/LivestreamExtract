@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 	//随便试了试CLI这个库
 	CLI::App app{"Livestream Interest Extractor"};
 
-	int roomId = 510541;
+	int roomId = 74751;
 	app.add_option("--room", roomId, "Livestreamer Room ID", true);
 
 	int rate = 0;
