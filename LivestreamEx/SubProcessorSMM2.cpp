@@ -203,6 +203,7 @@ void SubProcessorSMM2::smm2MatchEnd(cv::Mat& frame, uint64_t frameId)
 #define UPLOAD_EVERYTIME 0
 #if !UPLOAD_EVERYTIME
 		uploadVideoAsync(std::filesystem::path(k1ee::basic_string_cast<char8_t>(video_path)));
+		//std::u8string
 #else
 		
 		auto ratingFrom = currentSMM2Match->ratingFrom;

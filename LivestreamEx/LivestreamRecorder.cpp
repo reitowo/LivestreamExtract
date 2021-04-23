@@ -369,7 +369,7 @@ std::string LivestreamRecorder::endOutputSlice(int from, int to)
 		if (from != 0 && to != 0)
 		{
 			auto newName = generateSliceFilePath(from, to); 
-			std::filesystem::rename(oldName, k1ee::basic_string_cast<char8_t>(newName));
+			std::filesystem::rename(oldName, k1ee::basic_string_cast<char8_t>(newName)); //u8string
 			cout << "重命名为：" << newName << endl;
 			ret = newName;
 		}

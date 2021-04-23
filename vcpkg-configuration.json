@@ -2,7 +2,7 @@
     "registries": [
         {
             "kind": "git",
-            "repository": "https://github.com/cnSchwarzer/vcpkg-ports.git",
+            "repository": "https://github.com/cnSchwarzer/vcpkg-registry.git",
             "packages": [ "bup", "k1ee" ]
         }
     ]
