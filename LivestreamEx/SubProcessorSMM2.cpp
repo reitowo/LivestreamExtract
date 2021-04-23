@@ -422,6 +422,7 @@ void SubProcessorSMM2::stop()
 	}
 
 	//等待所有上传任务完成
+	uint32_t waitCount = 0;
 	while (true)
 	{
 		uploadQueueMutex.lock();
@@ -433,6 +434,8 @@ void SubProcessorSMM2::stop()
 		uploadQueueMutex.unlock();
 		cout << "等待所有上传任务完成" << endl;
 		std::this_thread::sleep_for(std::chrono::seconds(1));
+		if(waitCount++ > 120)
+			break;
 	}
 
 	uploader->edit(uploadedAvId, *uploadTask);
