@@ -44,7 +44,7 @@ bool LivestreamRecorder::start(int roomId)
 	//原汁原味的直播录像保存地点
 	std::string save = generateSaveFilePath();
 	std::filesystem::create_directories(outputFolder + std::string("/output_video"));
-	
+
 	avformat_alloc_output_context2(&out, nullptr, "flv", save.c_str());
 	avio_open2(&out->pb, save.c_str(), AVIO_FLAG_WRITE, nullptr, nullptr);
 	for (int i = 0; i < in->nb_streams; i++)
@@ -167,7 +167,7 @@ void LivestreamRecorder::download()
 	//BT709的系数和BT601不一样
 	if (bt709Conversion)
 		srcCoef = const_cast<int*>(sws_getCoefficients(AVCOL_SPC_BT709));
-	
+
 	sws_setColorspaceDetails(swsContext, srcCoef, srcRange, destCoef, destRange, brightness, contrast, saturation);
 
 	//一个简单的命令行状态统计
@@ -213,7 +213,7 @@ void LivestreamRecorder::download()
 		if (outSlice != nullptr)
 		{
 			AVPacket* slicePacket = av_packet_clone(packet);
-			
+
 			//首先要拿到关键帧，其次记录关键帧的PTS，对于在其之前的音频视频流进行丢弃防止音画不同步
 			if (((slicePacket->flags & AV_PKT_FLAG_KEY) && (slicePacket->stream_index == videoStreamIndex)) ||
 				outSliceVideoKeyFramePts != 0)
@@ -316,18 +316,19 @@ std::string LivestreamRecorder::generateSliceFilePath(int from, int to)
 	if (from == 0 && to == 0)
 	{
 		return outputFolder + "/output_slice/" + std::to_string(timestamp) + "/" + std::to_string(slice) + ".flv";
-	} 
-	
+	}
+
 	std::time_t t = std::time(nullptr); // get time now
 	std::tm now;
 	localtime_s(&now, &t);
-	std::string formattedTime = 
-		std::to_string(now.tm_hour) + "点"+ 
-		std::to_string(now.tm_min) + "分"+ 
+	std::string formattedTime =
+		std::to_string(now.tm_hour) + "点" +
+		std::to_string(now.tm_min) + "分" +
 		std::to_string(now.tm_sec) + "秒";
-	
+
 	return outputFolder + "/output_slice/" + std::to_string(timestamp) + "/" +
-		std::to_string(from) + "-" + std::to_string(to) + " (" + formattedTime + ")" ".flv";
+		std::to_string(from) + (to > from ? "↑" : to < from ? "↓" : "=") + std::to_string(to) + " (" + formattedTime +
+		")" ".flv";
 }
 
 void LivestreamRecorder::startOutputSlice()
@@ -346,7 +347,7 @@ void LivestreamRecorder::startOutputSlice()
 		avcodec_parameters_copy(stream->codecpar, in->streams[i]->codecpar);
 	}
 	avformat_write_header(outSlice, nullptr);
-	
+
 	outSliceVideoKeyFramePts = 0;
 	outSliceMutex.unlock();
 }
@@ -368,7 +369,7 @@ std::string LivestreamRecorder::endOutputSlice(int from, int to)
 
 		if (from != 0 && to != 0)
 		{
-			auto newName = generateSliceFilePath(from, to); 
+			auto newName = generateSliceFilePath(from, to);
 			std::filesystem::rename(oldName, k1ee::basic_string_cast<char8_t>(newName)); //u8string
 			cout << "重命名为：" << newName << endl;
 			ret = newName;
